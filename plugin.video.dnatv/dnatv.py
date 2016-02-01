@@ -25,7 +25,7 @@ class DNATVSession(requests.Session):
 					'dnaclient'],
 			[{'service' : 'betaserver', 'ver' : '1.8'},
 					{'serviceUser' : 'betaserver'},
-					'https://webui.booxtv.fi',
+					'https://fin2.booxmedia.com',
 					'betaserver']
 			]
 		self.servicedata = servicedata[services.index(servicename)]
@@ -33,7 +33,7 @@ class DNATVSession(requests.Session):
 		self.loggedin = False
 		self.digest_auth = HTTPDigestAuth(username, password)
 		self.digest_auth.init_per_thread_state()
-		loginpage = ['https://tv.dna.fi/webui/site/login', 'https://webui.booxtv.fi/webui/site/login']
+		loginpage = ['https://tv.dna.fi/webui/site/login', 'https://fin2.booxmedia.com/webui/site/login']
 		response = self.get(loginpage[services.index(servicename)])
 
 		if username in response.text:
